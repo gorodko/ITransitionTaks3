@@ -1,0 +1,119 @@
+﻿@model IEnumerable<ItransitionTask3.Models.ApplicationUser>
+
+@{
+    ViewBag.Title = "Управление пользователями";
+}
+
+<h2>Управление пользователями</h2>
+
+<div class="btn-toolbar" role="toolbar">
+        <button type="button" class="btn btn-danger btn-lg " id="btn-block">Block</button>
+        <button type="button" class="btn btn-secondary btn-sm" id="btn-unblock"><img src="/Content/unblock-icon.png"></button>
+        <button type="button" class="btn btn-secondary btn-sm" id="btn-delete"><img src="/Content/delete-icon.png"></button> <br/>
+</div>
+<table class="table">
+    <tr>
+        <th>
+            <input type="checkbox" id="all" value="">
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RegisterDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LastLoginDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Status)
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+<tr>
+    <th>
+        <input type="checkbox" id="users" value="@item.Id">
+    </th>
+    <td>
+        @Html.DisplayFor(modelItem => item.Id)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Email)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.RegisterDate)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.LastLoginDate)
+    </td>
+    <th>
+        @Html.DisplayFor(model => item.Status)
+    </th>
+</tr>
+}
+    
+</table>
+
+@section scripts{
+    <script>
+        $(document).ready(function () {
+            $('#all').on('click', function () {
+                if ($(this).is(':checked')) {
+                    $('input:checkbox').prop('checked', true);
+                } else {
+                    $('input:checkbox').prop('checked', false);
+                }
+            });
+            $('#btn-block').on('click', function () {
+                var values = $('input:checkbox:checked').map(function () {
+                    if ($(this).val() != '') return $(this).val();
+                }).toArray();
+                console.log(values)
+                $.ajax({
+                    type: "POST",
+                    url: "/Users/Block",
+                    data: JSON.stringify(values),
+                    contentType: "application/json",
+                    success: function (data) {
+                        location.reload();
+                    }
+                });
+            });
+            $('#btn-unblock').on('click', function () {
+                var values = $('input:checkbox:checked').map(function () {
+                    if ($(this).val() != '') return $(this).val();
+                }).toArray();
+                console.log(values)
+                $.ajax({
+                    type: "POST",
+                    url: "/Users/Unblock",
+                    data: JSON.stringify(values),
+                    contentType: "application/json",
+                    success: function (data) {
+                        location.reload();
+                    }
+                });
+            });
+            $('#btn-delete').on('click', function () {
+                var values = $('input:checkbox:checked').map(function () {
+                    if ($(this).val() != '') return $(this).val();
+                }).toArray();
+                console.log(values)
+                $.ajax({
+                    type: "POST",
+                    url: "/Users/Delete",
+                    data: JSON.stringify(values),
+                    contentType: "application/json",
+                    success: function (data) {
+                        location.reload();
+                    }
+                });
+            });
+        });
+
+    </script>
+}

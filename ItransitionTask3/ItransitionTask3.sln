@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30503.244
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ItransitionTask3", "ItransitionTask3\ItransitionTask3.csproj", "{EF79037C-0FAD-49B7-B3FB-1BA6E3F881C1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EF79037C-0FAD-49B7-B3FB-1BA6E3F881C1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EF79037C-0FAD-49B7-B3FB-1BA6E3F881C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EF79037C-0FAD-49B7-B3FB-1BA6E3F881C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EF79037C-0FAD-49B7-B3FB-1BA6E3F881C1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C9689935-9F62-4807-A0CB-16978FFDFF79}
+	EndGlobalSection
+EndGlobal
